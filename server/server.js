@@ -27,7 +27,7 @@ app.post('/',(req,res)=>{
     connection.query(sql,[req.body.username,req.body.password],(err,data)=>{
         if (err) {return connection.end();res.json('Error');}
         if (data.length) {
-            return res.render('homepage')
+            return res.json('logged in')
         }
         else{
             connection.end()
