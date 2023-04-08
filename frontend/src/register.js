@@ -16,7 +16,7 @@ const Register = () =>{
         .catch(err =>console.log(err))
     }
     return <div>
-        <form onSubmit={onsubmitHandler} method='post' action='/register'>
+        <form onSubmit={onsubmitHandler} method='post' >
       <label htmlFor='username'>Username</label>
       <input type='test' id='username' name='username' onChange={e=>setusername(e.target.value)}/> 
       <label htmlFor='password'>Password</label>

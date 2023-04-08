@@ -23,20 +23,20 @@ connection.connect((err)=>{
 
 
 
-app.post('/',(req,res)=>{
-    const sql = 'select * from users where username=? and password=?';
-    connection.query(sql,[req.body.username,req.body.password],(err,data)=>{
-        if (err) {return connection.end();res.json('Error');}
-        if (data.length) {
-            return res.json('logged in')
-        }
-        else{
-            // connection.end()
-            return res.json("no record")
-        }
-    })
-    // console.log(req.body.username,req.body.password)
-})
+// app.post('/',(req,res)=>{
+//     const sql = 'select * from users where username=? and password=?';
+//     connection.query(sql,[req.body.username,req.body.password],(err,data)=>{
+//         if (err) {return connection.end();res.json('Error');}
+//         if (data.length) {
+//             return res.json('logged in')
+//         }
+//         else{
+//             // connection.end()
+//             return res.json("no record")
+//         }
+//     })
+//     // console.log(req.body.username,req.body.password)
+// })
 
 // app.get('/',(req,res)=>res.render('index.js'))
 
@@ -47,8 +47,8 @@ app.post('/',(req,res)=>{
         if (err) return res.json('error')
         if (data.length) return res.json('data already exist')
         else{
-            const ins_sql = 'insert into users set ? '
-            connection.query(ins_sql,{username : obj.username,password : obj.password,email : obj.email,phone : (obj.phone)},(err,data)=>{
+            const ins_sql = 'insert into users set username=? , password = ? , email=? , phone=?'
+            connection.query(ins_sql,[obj.username,obj.password,obj.email,parseInt(obj.phone)],(err,data)=>{
                 if (err) throw err ;
                 else return res.json(data.affectedRows  )
                 // console.log(obj.username)
