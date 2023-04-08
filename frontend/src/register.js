@@ -1,28 +1,33 @@
 import React from 'react';
 import { useState } from 'react';
-import axios from 'axios';
+import axios from 'axios'
 
-const Login = () =>{
-    const [username,setusername] = useState();
+const Register = () =>{
+    const [username,setusername] = useState()
     const [password,setpassword] = useState()
+    const [email,setemail] = useState()
+    const [phone,setphone] = useState()
+
     const onsubmitHandler = (event) =>{
         event.preventDefault()
         // axios.post('http://localhost:5000/login',{username,password}).then
-        axios.post('http://localhost:5000',{username,password})
+        axios.post('http://localhost:5000',{username,password,email,phone})
         .then(res=>console.log(res))
         .catch(err =>console.log(err))
     }
-    
     return <div>
-    <form action='/' onSubmit={onsubmitHandler} method='post'>
+        <form onSubmit={onsubmitHandler} method='post' action='/register'>
       <label htmlFor='username'>Username</label>
       <input type='test' id='username' name='username' onChange={e=>setusername(e.target.value)}/> 
       <label htmlFor='password'>Password</label>
       <input type='password' id='password' name='password' onChange={p=>setpassword(p.target.value  )}/>
+      <label htmlFor='email'>Email</label>
+      <input type='email' id='email' name='email' onChange={e => setemail(e.target.value)} />
+      <label htmlFor='phone'>Phone</label>
+      <input type='tel' id='phone' name='phone' pattern='[0-9]{3}[0-9]{3}[0-9]{4}' onChange={t => setphone(t.target.value)}/>
       <button>Login</button>
     </form>
-
-  </div>
+    </div>
 }
 
-export default Login ;
+export default Register ;
