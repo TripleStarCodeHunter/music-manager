@@ -1,20 +1,17 @@
-import mysql2 from 'mysql2';
-import express from 'express';
-import cors from 'cors';
-
-
-const connection = mysql2.createConnection({
-    host:"localhost",
-    database:"music_db",
-    user:"root",
-    password:"mysql"
-})
-
+const mysql2 =require('mysql2');
+const express =require('express');
+const cors =require('cors');
+const loginRoutes = require('./routes/loginRoutes');
+const connection=require('./database_connection.js')
 const app = express()
 const PORT = 5000
+
 app.use(express.json())
 app.use(cors())
 app.use(express.urlencoded())
+
+app.use('/login',loginRoutes);
+app.use('/register',loginRoutes);
 
 connection.connect((err)=>{
     if (err) throw err ;
@@ -40,22 +37,22 @@ connection.connect((err)=>{
 
 // app.get('/',(req,res)=>res.render('index.js'))
 
-app.post('/',(req,res)=>{
-    const obj = req.body 
-    const sql = 'select * from users where username=? '
-    connection.query(sql,[obj.username],(err,data)=>{
-        if (err) return res.json('error')
-        if (data.length) return res.json('data already exist')
-        else{
-            const ins_sql = 'insert into users set username=? , password = ? , email=? , phone=?'
-            connection.query(ins_sql,[obj.username,obj.password,obj.email,parseInt(obj.phone)],(err,data)=>{
-                if (err) throw err ;
-                else return res.json(data.affectedRows  )
-                // console.log(obj.username)
-            })
-        }
-    })
-})
+// app.post('/',(req,res)=>{
+//     const obj = req.body 
+//     const sql = 'select * from users where username=? '
+//     connection.query(sql,[obj.username],(err,data)=>{
+//         if (err) return res.json('error')
+//         if (data.length) return res.json('data already exist')
+//         else{
+//             const ins_sql = 'insert into users set username=? , password = ? , email=? , phone=?'
+//             connection.query(ins_sql,[obj.username,obj.password,obj.email,parseInt(obj.phone)],(err,data)=>{
+//                 if (err) throw err ;
+//                 else return res.json(data.affectedRows  )
+//                 // console.log(obj.username)
+//             })
+//         }
+//     })
+// })
 
 
 app.listen(PORT,()=>console.log('app is running'))
