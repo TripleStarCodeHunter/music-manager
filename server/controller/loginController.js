@@ -3,6 +3,8 @@ const connection = require('../database_connection');
 exports.createUser=(req,res)=>{
     const obj = req.body 
     const sql = 'select * from users where username=? '
+    // console.dir(url.parse(req.url))
+    // console.log(req.route.path)
     connection.query(sql,[obj.username],(err,data)=>{
         if (err) return res.json('error')
         if (data.length) return res.json('data already exist')

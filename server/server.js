@@ -1,7 +1,8 @@
 const mysql2 =require('mysql2');
 const express =require('express');
 const cors =require('cors');
-const loginRoutes = require('./routes/loginRoutes');
+const registerRoute = require('./routes/registerRoute.js');
+const loginRoute = require('./routes/loginRoute')
 const connection=require('./database_connection.js')
 const app = express()
 const PORT = 5000
@@ -10,8 +11,8 @@ app.use(express.json())
 app.use(cors())
 app.use(express.urlencoded())
 
-app.use('/login',loginRoutes);
-app.use('/register',loginRoutes);
+// app.use('/',loginRoute);
+app.use('/',registerRoute);
 
 connection.connect((err)=>{
     if (err) throw err ;

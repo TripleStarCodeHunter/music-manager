@@ -16,7 +16,7 @@ const Register = () =>{
         .catch(err =>console.log(err))
     }
     return <div>
-        <form onSubmit={onsubmitHandler} method='post' >
+        <form onSubmit={onsubmitHandler} method='post' action='/register'>
       <label htmlFor='username'>Username</label>
       <input type='test' id='username' name='username' onChange={e=>setusername(e.target.value)}/> 
       <label htmlFor='password'>Password</label>
@@ -24,7 +24,7 @@ const Register = () =>{
       <label htmlFor='email'>Email</label>
       <input type='email' id='email' name='email' onChange={e => setemail(e.target.value)} />
       <label htmlFor='phone'>Phone</label>
-      <input type='tel' id='phone' name='phone' pattern='[0-9]{3}[0-9]{3}[0-9]{4}' onChange={t => setphone(t.target.value)}/>
+      <input type='tel' id='phone' name='phone'  onChange={t => setphone(t.target.value)}/>
       <button>Login</button>
     </form>
     </div>

@@ -14,7 +14,7 @@ const Login = () =>{
     }
     
     return <div>
-    <form action='/' onSubmit={onsubmitHandler} method='post'>
+    <form action='/login' onSubmit={onsubmitHandler} method='post'>
       <label htmlFor='username'>Username</label>
       <input type='test' id='username' name='username' onChange={e=>setusername(e.target.value)}/> 
       <label htmlFor='password'>Password</label>
