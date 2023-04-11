@@ -12,14 +12,15 @@ app.use(cors())
 app.use(express.urlencoded())
 
 // app.use('/',loginRoute);
-app.use('/',registerRoute);
 
-connection.connect((err)=>{
+
+connection.connect((err)=>{ 
     if (err) throw err ;
     console.log("connected")
 })
 
-
+app.use('/',registerRoute);
+app.use('/',loginRoute)
 
 // app.post('/',(req,res)=>{
 //     const sql = 'select * from users where username=? and password=?';
