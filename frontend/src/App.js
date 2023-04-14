@@ -1,12 +1,14 @@
 // import logo from './logo.svg';
-import './App.css';
+// import './App.css';
 import Login from './login';
 // import Registration from './registration';
-import HomePage from './homepage';
-import Register from './register';
+// import HomePage from './homepage';
+// import Register from './register';
+import Register from './pages/registration';
 import {BrowserRouter,Route,Routes } from 'react-router-dom';
 // import axios from 'axios';
 
+import MainPage from './pages/mainpage';
 function App() {
   return (
     <div>
@@ -14,7 +16,7 @@ function App() {
       <BrowserRouter>
       <Routes>
       <Route exact path='/register' element={<Register />} />
-      <Route exact path='/' element={<HomePage />}></Route>
+      <Route exact path='/' element={<MainPage />}></Route>
       <Route exact path='/login' element={<Login />}/>
       </Routes>
       </BrowserRouter>
