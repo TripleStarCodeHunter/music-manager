@@ -4,7 +4,6 @@ import Arijit from "../../images/arjit.jpg";
 // import Weeknd from "../images/album-cover-1.jpeg.jpg";
 import Weeknd from "../../images/1.jpg";
 import Vande from "../../images/26th.jpg";
-import "./Main.css"
 
 const Main = () => {
     return ( 
