@@ -8,6 +8,7 @@ import "./Main.css"
 
 const Main = () => {
     return ( 
+        <header>
 <div className="main-page-background">
     <div className="menu_side">
         <h1>Playlist</h1>
@@ -257,6 +258,7 @@ const Main = () => {
     </div>
 
 </div>
+</header>
 
  );
 }
