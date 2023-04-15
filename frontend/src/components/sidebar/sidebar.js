@@ -8,7 +8,7 @@ import Vande from "../../images/26th.jpg";
 
 const SideBar= ()=>{
     return(
-        <header>
+        <header id="header-side-bar">
     <div className="menu_side">
         <h1>Playlist</h1>
         <div className="playlist">
