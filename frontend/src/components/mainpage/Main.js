@@ -23,7 +23,7 @@ const Main = () => {
 
     useEffect(()=>{
         //fetch song data from backend
-        fetch('localhost:5000/getSongs')
+        fetch('http://localhost:5000/getSongs')
       .then(response => response.json())
       .then(data => setData(data)
       )
@@ -114,10 +114,10 @@ const songs = [
     },
 ]
 
-Array.from(document.getElementsByClassName('songItem')).forEach((element, i)=>{
-    // element.getElementsByTagName('img')[0].src = songs[i].poster;
-    element.getElementsByTagName('h5')[0].innerHTML = songs[i].songName;
-})
+// Array.from(document.getElementsByClassName('songItem')).forEach((element, i)=>{
+//     // element.getElementsByTagName('img')[0].src = songs[i].poster;
+//     element.getElementsByTagName('h5')[0].innerHTML = songs[i].songName;
+// })
 
 
 let masterPlay = document.getElementById('masterPlay');
@@ -371,7 +371,21 @@ right_scrolls.addEventListener('click', ()=>{
                 </div>
             </div>
             <div class="pop_song">
-                <li class="songItem">
+
+            {data.map((song) => (
+                <li className="songItem" key={song.id}>
+                    <div className="img_play">
+                    <img src={one} alt={song.artist} /> {/* Use imported image */}
+                    <i className="bi playListPlay bi-play-circle-fill" id={song.id}></i>
+                    </div>
+                    <h5>
+                    {song.song_name}
+                    <br />
+                    <div className="subtitle">{song.artistName}</div>
+                    </h5>
+                </li>
+            ))}
+                {/* <li class="songItem">
                     <div class="img_play">
                         <img src={one} alt="alan" />
                         <i class="bi playListPlay bi-play-circle-fill" id="7"></i>
@@ -385,7 +399,7 @@ right_scrolls.addEventListener('click', ()=>{
                     <div class="img_play">
                         <img src={one} alt="alan" />
                         <i class="bi playListPlay bi-play-circle-fill" id="8"></i>
-                        {/* <!-- change All id  --> */}
+                        <!-- change All id  -->
                     </div>
                     <h5>On My Way
                         <br />
@@ -461,7 +475,7 @@ right_scrolls.addEventListener('click', ()=>{
                         <br />
                         <div class="subtitle">Alan Walker</div>
                     </h5>
-                </li>
+                </li> */}
             </div>
         </div>
         <div class="popular_artists">
