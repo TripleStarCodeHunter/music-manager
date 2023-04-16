@@ -1,8 +1,11 @@
 const mysql2 =require('mysql2');
 const express =require('express');
 const cors =require('cors');
+
 const registerRoute = require('./routes/registerRoute.js');
 const loginRoute = require('./routes/loginRoute')
+const songsRoute = require('./routes/songsRoute.js')
+
 const connection=require('./database_connection.js')
 const app = express()
 const PORT = 5000
@@ -21,6 +24,7 @@ connection.connect((err)=>{
 
 app.use('/',registerRoute);
 app.use('/',loginRoute)
+app.use('/',songsRoute)
 
 // app.post('/',(req,res)=>{
 //     const sql = 'select * from users where username=? and password=?';
