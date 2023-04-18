@@ -2,9 +2,8 @@ import React from "react";
 import Alan from "../../images/alan.jpg";
 import Arijit from "../../images/arjit.jpg";
 // import Weeknd from "../images/album-cover-1.jpeg.jpg";
-import Weeknd from "../../images/1.jpg";
-import Vande from "../../images/26th.jpg";
-import one from "../../images/1.jpg"
+
+
 import atif from "../../images/atif.jpg"
 import akhil from "../../images/akhil.jpg"
 import dhvani from "../../images/dhvani.jpg"
@@ -20,7 +19,7 @@ import './Main.css'
 import { useEffect,useState } from "react";
 const Main = () => {
     const [data, setData] = useState([]);
-
+    //fetch data
     useEffect(()=>{
         //fetch song data from backend
         fetch('http://localhost:5000/getSongs')
@@ -113,12 +112,6 @@ const songs = [
         poster: "img/15.jpg",
     },
 ]
-
-// Array.from(document.getElementsByClassName('songItem')).forEach((element, i)=>{
-//     // element.getElementsByTagName('img')[0].src = songs[i].poster;
-//     element.getElementsByTagName('h5')[0].innerHTML = songs[i].songName;
-// })
-
 
 let masterPlay = document.getElementById('masterPlay');
 let wave = document.getElementsByClassName('wave')[0];
@@ -320,18 +313,6 @@ left_scroll.addEventListener('click', ()=>{
 right_scroll.addEventListener('click', ()=>{
     pop_song.scrollLeft += 330;
 })
-
-
-let left_scrolls = document.getElementById('left_scrolls');
-let right_scrolls = document.getElementById('right_scrolls');
-let item = document.getElementsByClassName('item')[0];
-
-left_scrolls.addEventListener('click', ()=>{
-    item.scrollLeft -= 330;
-})
-right_scrolls.addEventListener('click', ()=>{
-    item.scrollLeft += 330;
-})
     },[])
     return ( 
 <header id="header-song-side">
@@ -375,7 +356,7 @@ right_scrolls.addEventListener('click', ()=>{
             {data.map((song) => (
                 <li className="songItem" key={song.id}>
                     <div className="img_play">
-                    <img src={one} alt={song.artist} /> {/* Use imported image */}
+                    <img src={song.img} alt={song.artist} /> {/* Use imported image */}
                     <i className="bi playListPlay bi-play-circle-fill" id={song.id}></i>
                     </div>
                     <h5>
@@ -385,106 +366,12 @@ right_scrolls.addEventListener('click', ()=>{
                     </h5>
                 </li>
             ))}
-                {/* <li class="songItem">
-                    <div class="img_play">
-                        <img src={one} alt="alan" />
-                        <i class="bi playListPlay bi-play-circle-fill" id="7"></i>
-                    </div>
-                    <h5>On My Way
-                        <br />
-                        <div class="subtitle">Alan Walker</div>
-                    </h5>
-                </li>
-                <li class="songItem">
-                    <div class="img_play">
-                        <img src={one} alt="alan" />
-                        <i class="bi playListPlay bi-play-circle-fill" id="8"></i>
-                        <!-- change All id  -->
-                    </div>
-                    <h5>On My Way
-                        <br />
-                        <div class="subtitle">Alan Walker</div>
-                    </h5>
-                </li>
-                <li class="songItem">
-                    <div class="img_play">
-                        <img src={one} alt="alan" />
-                        <i class="bi playListPlay bi-play-circle-fill" id="9"></i>
-                    </div>
-                    <h5>On My Way
-                        <br />
-                        <div class="subtitle">Alan Walker</div>
-                    </h5>
-                </li>
-                <li class="songItem">
-                    <div class="img_play">
-                        <img src={one} alt="alan"/>
-                        <i class="bi playListPlay bi-play-circle-fill" id="10"></i>
-                    </div>
-                    <h5>On My Way
-                        <br />
-                        <div class="subtitle">Alan Walker</div>
-                    </h5>
-                </li>
-                <li class="songItem">
-                    <div class="img_play">
-                        <img src={one} alt="alan" />
-                        <i class="bi playListPlay bi-play-circle-fill" id="11"></i>
-                    </div>
-                    <h5>On My Way
-                        <br />
-                        <div class="subtitle">Alan Walker</div>
-                    </h5>
-                </li>
-                <li class="songItem">
-                    <div class="img_play">
-                        <img src={one} alt="alan" />
-                        <i class="bi playListPlay bi-play-circle-fill" id="12"></i>
-                    </div>
-                    <h5>On My Way
-                        <br />
-                        <div class="subtitle">Alan Walker</div>
-                    </h5>
-                </li>
-                <li class="songItem">
-                    <div class="img_play">
-                        <img src={one} alt="alan" />
-                        <i class="bi playListPlay bi-play-circle-fill" id="13"></i>
-                    </div>
-                    <h5>On My Way
-                        <br />
-                        <div class="subtitle">Alan Walker</div>
-                    </h5>
-                </li>
-                <li class="songItem">
-                    <div class="img_play">
-                        <img src={one} alt="alan" />
-                        <i class="bi playListPlay bi-play-circle-fill" id="14"></i>
-                    </div>
-                    <h5>On My Way
-                        <br />
-                        <div class="subtitle">Alan Walker</div>
-                    </h5>
-                </li>
-                <li class="songItem">
-                    <div class="img_play">
-                        <img src={one} alt="alan" />
-                        <i class="bi playListPlay bi-play-circle-fill" id="15"></i>
-                    </div>
-                    <h5>On My Way
-                        <br />
-                        <div class="subtitle">Alan Walker</div>
-                    </h5>
-                </li> */}
             </div>
         </div>
         <div class="popular_artists">
             <div class="h4">
                 <h4>Popular Artists</h4>
-                <div class="btn_s">
-                    <i id="left_scrolls" class="bi bi-arrow-left-short"></i>
-                    <i id="right_scrolls" class="bi bi-arrow-right-short"></i>
-                </div>
+                
             </div>
             <div class="item">
                 <li>
