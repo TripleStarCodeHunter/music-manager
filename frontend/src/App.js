@@ -9,6 +9,7 @@ import {BrowserRouter,Route,Routes } from 'react-router-dom';
 // import axios from 'axios';
 import LoginPage from './pages/loginPage';
 import MainPage from './pages/mainpage';
+import UserPage from './pages/userPage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route exact path='/register' element={<Register />} />
       <Route exact path='/' element={<MainPage />}></Route>
       <Route exact path='/login' element={<LoginPage />}/>
+      <Route exact path='/user' element={<UserPage />} />
       </Routes>
       </BrowserRouter>
       {/* <Registration /> */}
