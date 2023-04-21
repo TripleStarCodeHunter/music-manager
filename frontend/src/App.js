@@ -10,6 +10,7 @@ import {BrowserRouter,Route,Routes } from 'react-router-dom';
 import LoginPage from './pages/loginPage';
 import MainPage from './pages/mainpage';
 import UserPage from './pages/userPage';
+import ArtistPage from './pages/artistPage';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route exact path='/' element={<MainPage />}></Route>
       <Route exact path='/login' element={<LoginPage />}/>
       <Route exact path='/user' element={<UserPage />} />
+      <Route exact path='/artist' element={<ArtistPage />} />
       </Routes>
       </BrowserRouter>
       {/* <Registration /> */}

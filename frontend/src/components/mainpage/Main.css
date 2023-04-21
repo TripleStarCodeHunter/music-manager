@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-body {
+.main-background {
     width: 100%;
     height: 100vh;
     background-color: #131312;
@@ -25,7 +25,7 @@ header {
     overflow: hidden;
 }
 
-header .menu_side, .song_side {
+header .menu_side, .main-song_side {
     position: relative;
     width: 25%;
     height: 100%;
@@ -35,7 +35,7 @@ header .menu_side, .song_side {
     color: #fff;
 }
 
-header .song_side {
+header .main-song_side {
     width: 75%;
     background: #0b1320;
 }
@@ -342,7 +342,7 @@ header .master_play .vol input{
    box-shadow: inset 0px 0px 3px #36e2ec;
  }
 
- header .song_side {
+ header .main-song_side {
      z-index: 2;
  }
  header .song_side::before{
@@ -353,7 +353,7 @@ header .master_play .vol input{
      background: url('../../images/bg.png');
      z-index: -1;
  }
- header .song_side nav{
+ header .main-song_side nav{
     width: 90%;
     height: 10%;
     margin: auto;
@@ -362,10 +362,10 @@ header .master_play .vol input{
     align-items: center;
     justify-content: space-between;
  }
- header .song_side nav ul{
+ header .main-song_side nav ul{
     display: flex;
  }
- header .song_side nav ul li{
+ header .main-song_side nav ul li{
     position: relative;
     list-style-type: none;
     font-size: 13px;
@@ -374,13 +374,13 @@ header .master_play .vol input{
     cursor: pointer;
     transition: .3s linear;
  }
- header .song_side nav ul li:hover{
+ header .main-song_side nav ul li:hover{
    color: #fff;
  }
- header .song_side nav ul li:nth-child(1){
+ header .main-song_side nav ul li:nth-child(1){
    color: #fff;
  }
- header .song_side nav ul li span{
+ header .main-song_side nav ul li span{
    position: absolute;
    width: 100%;
    height: 2.5px;
@@ -389,14 +389,14 @@ header .master_play .vol input{
    left: 0;
    border-radius: 20px;
  }
- header .song_side nav .search{
+ header .main-song_side nav .search{
    position: relative;
    width: 40%;
    padding: 1px 10px;
    border-radius: 20px;
    color: gray;
  }
- header .song_side nav .search::before{
+ header .main-song_side nav .search::before{
      content: '';
    position: absolute;
    width: 100%;
@@ -406,11 +406,11 @@ header .master_play .vol input{
    backdrop-filter: blur(5px);
    z-index: -1;
  }
- header .song_side nav .search .bi{
+ header .main-song_side nav .search .bi{
     font-size: 13px;
     padding: 3px 0px 0px 10px;
  }
- header .song_side nav .search input{
+ header .main-song_side nav .search input{
     background: none;
     outline: none;
     border: none;
@@ -418,14 +418,14 @@ header .master_play .vol input{
     color: #fff;
     font-size: 12px;
  }
- header .song_side nav .user{
+ header .main-song_side nav .user{
     position: relative;
     width: 30px;
     height: 30px;
     border-radius: 50%;
     cursor: pointer;
  }
- header .song_side nav .user img{
+ header .main-song_side nav .user img{
     position: absolute;
     width: 30px;
     height: 30px;
@@ -433,7 +433,7 @@ header .master_play .vol input{
     box-shadow: 2px 2px 8px #131312;
  }
 
- header .song_side .content {
+ header .main-song_side .content {
      width:90%;
      height: 30%;
      margin: auto;
@@ -441,20 +441,20 @@ header .master_play .vol input{
      padding-top: 20px;
  }
  
- header .song_side .content h1{
+ header .main-song_side .content h1{
     font-size: 25px;
     font-weight: 600;
  }
- header .song_side .content p{
+ header .main-song_side .content p{
     font-size: 11px;
     font-weight: 400;
     color: #4c5262;
     margin: 5px;
  }
- header .song_side .content .buttons{
+ header .main-song_side .content .buttons{
     margin-top: 15px;
  }
- header .song_side .content .buttons button{
+ header .main-song_side .content .buttons button{
     width: 130px;
     height: 30px;
     border: 2px solid #36e2ec;
@@ -465,44 +465,44 @@ header .master_play .vol input{
     cursor: pointer;
     transition: .3s linear;
  }
- header .song_side .content .buttons button:hover{
+ header .main-song_side .content .buttons button:hover{
     border: 2px solid #36e2ec;
     background: none;
     color: #36e2ec;
  }
- header .song_side .content .buttons button:nth-child(2){
+ header .main-song_side .content .buttons button:nth-child(2){
     border: 2px solid #36e2ec;
     background: none;
     color: #36e2ec;
  }
- header .song_side .content .buttons button:nth-child(2):hover{
+ header .main-song_side .content .buttons button:nth-child(2):hover{
     border: 2px solid #36e2ec;
     background: #36e2ec;
     color: #fff;
  }
 
- header .song_side .popular_song {
+ header .main-song_side .popular_song {
      width: 90%;
      height: auto;
      /* border: 1px solid #fff; */
      margin: auto;
      margin-top: 15px;
  }
- header .song_side .popular_song .h4{
+ header .main-song_side .popular_song .h4{
     display: flex;
     align-items: center;
     justify-content: space-between;
  }
- header .song_side .popular_song .h4 .bi{
+ header .main-song_side .popular_song .h4 .bi{
     color: #a4a8b4;
     cursor: pointer;
     transition: .3s linear;
  }
- header .song_side .popular_song .h4 .bi:hover{
+ header .main-song_side .popular_song .h4 .bi:hover{
     color: #fff;
  }
 
- header .song_side .popular_song .pop_song {
+ header .main-song_side .popular_song .pop_song {
      width: 100%;
      height: 150px;
      margin-top: 15px;
@@ -510,20 +510,20 @@ header .master_play .vol input{
      overflow-x: auto;
      scroll-behavior: smooth;
  }
- header .song_side .popular_song .pop_song::-webkit-scrollbar{
+ header .main-song_side .popular_song .pop_song::-webkit-scrollbar{
      display: none;
  }
- header .song_side .popular_song .pop_song li{
+ header .main-song_side .popular_song .pop_song li{
      min-width: 100px;
      height: 140px;
      list-style-type: none;
      margin-right: 10px;
      transition: .3s linear;
  }
- header .song_side .popular_song .pop_song li:hover{
+ header .main-song_side .popular_song .pop_song li:hover{
      background: rgb(105, 105, 170,.1);
  }
- header .song_side .popular_song .pop_song li .img_play{
+ header .main-song_side .popular_song .pop_song li .img_play{
     position: relative;
     width: 100px;
     height: 100px;
@@ -531,51 +531,51 @@ header .master_play .vol input{
     align-items: center;
     justify-content: center;
  }
- header .song_side .popular_song .pop_song li .img_play img{
+ header .main-song_side .popular_song .pop_song li .img_play img{
    width: 100%;
    height: 100%;
  }
- header .song_side .popular_song .pop_song li .img_play .bi{
+ header .main-song_side .popular_song .pop_song li .img_play .bi{
    position: absolute;
    font-size: 20px;
    cursor: pointer;
    transition: .3s linear;
    opacity: 0;
  }
- header .song_side .popular_song .pop_song li .img_play:hover .bi{
+ header .main-song_side .popular_song .pop_song li .img_play:hover .bi{
    opacity: 1;
  }
- header .song_side .popular_song .pop_song li h5{
+ header .main-song_side .popular_song .pop_song li h5{
    padding: 5px 0px 0px 5px;
    line-height: 15px;
    font-size: 10px;
  }
- header .song_side .popular_song .pop_song li h5 .subtitle{
+ header .main-song_side .popular_song .pop_song li h5 .subtitle{
    font-size: 9px;
    color: #4c5262;
  }
 
- header .song_side .popular_artists {
+ header .main-song_side .popular_artists {
     width: 90%;
     height: auto;
     /* border: 1px solid #fff; */
     margin: auto;
     margin-top: 15px;
 }
-header .song_side .popular_artists .h4{
+header .main-song_side .popular_artists .h4{
    display: flex;
    align-items: center;
    justify-content: space-between;
 }
-header .song_side .popular_artists .h4 .bi{
+header .main-song_side .popular_artists .h4 .bi{
    color: #a4a8b4;
    cursor: pointer;
    transition: .3s linear;
 }
-header .song_side .popular_artists .h4 .bi:hover{
+header .main-song_side .popular_artists .h4 .bi:hover{
    color: #fff;
 }
-header .song_side .popular_artists .item{
+header .main-song_side .popular_artists .item{
   width: 100%;
   height: auto;
   margin-top: 10px;
@@ -583,10 +583,10 @@ header .song_side .popular_artists .item{
   overflow-x: auto;
   scroll-behavior: smooth;
 }
-header .song_side .popular_artists .item::-webkit-scrollbar{
+header .main-song_side .popular_artists .item::-webkit-scrollbar{
   display: none;
 }
-header .song_side .popular_artists .item li{
+header .main-song_side .popular_artists .item li{
  list-style-type: none;
  position: relative;
  min-width: 60px;
@@ -596,7 +596,7 @@ header .song_side .popular_artists .item li{
  margin-right: 20px;
  cursor: pointer;
 }
-header .song_side .popular_artists .item li img{
+header .main-song_side .popular_artists .item li img{
  width: 100%;
  height: 100%;
  border-radius: 50%;
