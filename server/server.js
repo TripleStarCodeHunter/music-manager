@@ -1,8 +1,11 @@
 const mysql2 =require('mysql2');
 const express =require('express');
 const cors =require('cors');
+
 const registerRoute = require('./routes/registerRoute.js');
 const loginRoute = require('./routes/loginRoute')
+const songsRoute = require('./routes/songsRoute.js')
+
 const connection=require('./database_connection.js')
 const Artistrender = require('./routes/ArtistRoute.js')
 const app = express()
@@ -22,6 +25,8 @@ connection.connect((err)=>{
 
 app.use('/',registerRoute);
 app.use('/',loginRoute)
+app.use('/',songsRoute)
+
 app.use('/',Artistrender)
 // app.use('/',)
 // app.post('/123',(req,res)=>{
@@ -30,6 +35,9 @@ app.use('/',Artistrender)
 // app.get('/',(req,res)=>{
 //     res.redirect('/123')
 // })
+
+
+app.use('/',songsRoute)
 
 
 // app.post('/',(req,res)=>{
