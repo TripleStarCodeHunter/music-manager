@@ -4,6 +4,7 @@ const cors =require('cors');
 const registerRoute = require('./routes/registerRoute.js');
 const loginRoute = require('./routes/loginRoute')
 const connection=require('./database_connection.js')
+const Artistrender = require('./routes/ArtistRoute.js')
 const app = express()
 const PORT = 5000
 
@@ -21,6 +22,15 @@ connection.connect((err)=>{
 
 app.use('/',registerRoute);
 app.use('/',loginRoute)
+app.use('/',Artistrender)
+// app.use('/',)
+// app.post('/123',(req,res)=>{
+//     console.log('hello')
+// })
+// app.get('/',(req,res)=>{
+//     res.redirect('/123')
+// })
+
 
 // app.post('/',(req,res)=>{
 //     const sql = 'select * from users where username=? and password=?';
@@ -55,6 +65,9 @@ app.use('/',loginRoute)
 //         }
 //     })
 // })
+
+
+
 
 
 app.listen(PORT,()=>console.log('app is running'))
