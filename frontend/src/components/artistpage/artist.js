@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useEffect,useState } from "react";
 import one from "../../images/10.jpg";
 import './artist.css'
+import { useParams } from "react-router-dom";
 
 const Artist = () => {
-    return ( 
+    const [data,setData] = useState([])
+    const val = useParams()
+    // console.log(val)
+    
+    useEffect(() =>
+        {fetch(`http://localhost:5000/artist/${val.id}`)
+        .then(response=>response.json())
+        .then(data =>setData(data))
+        .catch(err => console.log(err))}
+    ,)
+    // console.log(data)
+    return (
+         
 <div className="artist-background">
         <nav>
         <ul>
@@ -12,63 +25,19 @@ const Artist = () => {
             <li>About</li>
         </ul>
     </nav>
-
+        <h1>{val.name}</h1>
     <div class="container">
-        <div class="songList">
-            <h1>The Weeknd</h1>
+        {data.map((song) => (<div class="songList">
+            {/* <h1>{song.song_name}</h1> */}
             <div class="songItemContainer">
                 <div class="songItem">
-                    <img src={one} alt="alan" />
-                    <span class="songName">Save Your Tears</span>
+                    <img src={song.img} alt="alan" />
+                    <span class="songName">{song.song_name}</span>
                     <span class="songlistplay"><span class="timestamp">05:34 <i id="0" class="far songItemPlay fa-play-circle"></i> </span></span>
                 </div>
-                <div class="songItem">
-                    <img src={one} alt="alan" />
-                    <span class="songName">Save Your Tears</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="1" class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                <div class="songItem">
-                    <img src={one} alt="alan" />
-                    <span class="songName">Save Your Tears</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="2" class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                <div class="songItem">
-                    <img src={one} alt="alan" />
-                    <span class="songName">Save Your Tears</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="3" class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                <div class="songItem">
-                    <img src={one} alt="alan" />
-                    <span class="songName">Save Your Tears</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="4" class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                <div class="songItem">
-                    <img src={one} alt="alan" />
-                    <span class="songName">Save Your Tears</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="5" class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                <div class="songItem">
-                    <img src={one} alt="alan" />
-                    <span class="songName">Save Your Tears</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="6" class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                <div class="songItem">
-                    <img src={one} alt="alan" />
-                    <span class="songName">Save Your Tears</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="7" class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                <div class="songItem">
-                    <img src={one} alt="alan" />
-                    <span class="songName">Save Your Tears</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="8" class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                <div class="songItem">
-                    <img src={one} alt="alan" />
-                    <span class="songName">Save Your Tears</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="9" class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
+                
             </div>
-        </div>
+        </div>))}
         <div class="songBanner"></div>
     </div>
 
@@ -80,9 +49,9 @@ const Artist = () => {
             <i class="far fa-3x fa-play-circle" id="masterPlay"></i>
             <i class="fas fa-3x fa-step-forward" id="next"></i> 
         </div>
-        <div class="songInfo">
+        {/* <div class="songInfo">
         <img src={one} alt="alan" /> <span id="masterSongName">Warriyo - Mortals [NCS Release]</span>
-        </div>
+        </div> */}
     </div>
 </div>
  );

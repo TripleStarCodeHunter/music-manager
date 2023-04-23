@@ -26,7 +26,8 @@ connection.connect((err)=>{
 app.use('/',registerRoute);
 app.use('/',loginRoute)
 app.use('/',songsRoute)
-
+// app.use.('/',getArtist)
+// app.use('/',getArtist)
 app.use('/',Artistrender)
 // app.use('/',)
 // app.post('/123',(req,res)=>{

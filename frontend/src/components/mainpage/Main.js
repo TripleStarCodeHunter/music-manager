@@ -14,9 +14,12 @@ import jubin from "../../images/jubin Nautiyal.jpg"
 import neha from "../../images/neha.jpg"
 import justin from "../../images/justin-bieber-lede.jpg"
 import two_six from "../../images/26th.jpg"
+import dua from '../../images/dua.jpg';
+import taylor from '../../images/taylor.jpg';
 import './Main.css'
 
 import { useEffect,useState } from "react";
+import { Link } from "react-router-dom";
 const Main = () => {
     const [data, setData] = useState([]);
     //fetch data
@@ -27,7 +30,7 @@ const Main = () => {
       .then(data => setData(data)
       )
       .catch(error => console.log(error));
-        console.log(data);
+        
         const music = new Audio('vande.mp3');
 
 // create Array 
@@ -375,10 +378,10 @@ right_scroll.addEventListener('click', ()=>{
             </div>
             <div class="item">
                 <li>
-                    <img src={Arijit} alt="Arjit Singh" title="Arjit Singh" />
+                    <Link to='/artist/4/arijit singh'><img src={Arijit} alt="Arjit Singh" title="Arjit Singh" /></Link>
                 </li>
                 <li>
-                    <img src={Alan} alt="Alan Walker" title="Alan Walker" />
+                    <Link to='/artist/2/Alan Walker'><img src={Alan} alt="Alan Walker" title="Alan Walker" /></Link>
                 </li>
                 <li>
                     <img src={atif} alt="Atif Aslam" title="Atif Aslam" />
@@ -393,13 +396,19 @@ right_scroll.addEventListener('click', ()=>{
                     <img src={diljit} alt="Diljit Dosanjh" title="Diljit Dosanjh" />
                 </li>
                 <li>
-                    <img src={jubin} alt="Jubin Nautiyal" title="Jubin Nautiyal" />
+                    <Link to='/artist/6/Jubin Nautiyal'><img src={jubin} alt="Jubin Nautiyal" title="Jubin Nautiyal" /></Link>
                 </li>
                 <li>
-                    <img src={neha} alt="Neha Kakker" title="Neha Kakker" />
+                    <Link to='/artist/5/Neha Kakkar'><img src={neha} alt="Neha Kakker" title="Neha Kakker" /></Link>
                 </li>
                 <li>
-                    <img src={justin} alt="Justin Bieber" title="Justin Bieber" />
+                    <Link to='/artist/8/Dua Lipa'><img src={dua} alt="Dua Lipa" title="Dua Lipa" /></Link>
+                </li>
+                <li>
+                    <Link to='/artist/3/Justin Beiber'><img src={justin} alt="Justin Bieber" title="Justin Bieber" /></Link>
+                </li>
+                <li>
+                    <Link to='/artist/7/Taylor Swift'><img src={taylor} alt="Taylor Swift" title="Taylor Swift" /></Link>
                 </li>
                 <li>
                     <img src={honey} alt="Honey Singh" title="Honey Singh" />
