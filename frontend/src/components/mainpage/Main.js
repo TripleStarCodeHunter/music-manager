@@ -317,7 +317,7 @@ right_scroll.addEventListener('click', ()=>{
     return ( 
 <div className="main-background">
 <header id="header-song-side">
-    <div class="main-song_side">
+    <div class="song_side">
         <nav>
             <ul>
                 <li>Discover <span></span></li>

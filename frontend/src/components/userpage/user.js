@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+/*import React, { useState } from "react";
 import "./user.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -27,24 +27,6 @@ function UserPage() {
             >
               <FontAwesomeIcon icon={faUser} />
             </a>
-            <a
-              onClick={() => handleTabClick(1)}
-              className={activeTab === 1 ? "tab active" : "tab"}
-            >
-              <FontAwesomeIcon icon={faCreditCard} />
-            </a>
-            <a
-              onClick={() => handleTabClick(2)}
-              className={activeTab === 2 ? "tab active" : "tab"}
-            >
-              <FontAwesomeIcon icon={faTv} />
-            </a>
-            <a
-              onClick={() => handleTabClick(3)}
-              className={activeTab === 3 ? "tab active" : "tab"}
-            >
-              <FontAwesomeIcon icon={faTasks} />
-            </a>
           </nav>
         </div>
         <div className="user-rightbox">
@@ -65,65 +47,91 @@ function UserPage() {
             <h2>Password</h2>
             <input className="user-input" type="password" value="" />
             <button className="user-btn">Update</button>
-          </div>
-
-          <div
-            className={
-              activeTab === 1 ? "payment tabShow" : "payment tabHide"
-            }
-          >
-            <h1>Payment Info</h1>
-            <h2>Payment Method</h2>
-            <input className="user-input" type="text" value="" />
-            <h2>Billing Address</h2>
-            <input className="user-input" type="text" value="" />
-            <h2>ZipCode</h2>
-            <input className="user-input" type="text" value="" />
-            <h2>Billing Date</h2>
-            <input className="user-input" type="date" value="" />
-            <h2>Redeem Card</h2>
-            <input className="user-input" type="password" value="" />
-            <button className="user-btn">Update</button>
-          </div>
-          
-          <div
-            className={
-              activeTab === 2 ? "subscription tabShow" : "subscription tabHide"
-            }
-          >
-            <h1>subscription Info</h1>
-            <h2>Payment Date</h2>
-            <input className="user-input" type="text" value="" />
-            <h2>Next Charge</h2>
-            <input className="user-input" type="text" value="" />
-            <h2>Plan</h2>
-            <input className="user-input" type="text" value="" />
-            <h2>Monthly Plan</h2>
-            <input className="user-input" type="date" value="" />
-            <h2>Redeem Card</h2>
-            <input className="user-input" type="password" value="" />
-            <button className="user-btn">Update</button>
-          </div>
-          <div
-            className={
-              activeTab === 3 ? "privacy tabShow" : "privacy tabHide"
-            }
-          >
-            <h1>Privacy Info</h1>
-            <h1>Privacy Settings</h1>
-                <h2>Manage Email Notification</h2>
-                <p></p>
-                <h2>View Terms Of Use</h2>
-                <p></p>
-                <h2>Personalized Ads</h2>
-                <p></p>
-                <h2>Protect Account</h2>
-                <p></p>
-          </div>
-          
+          </div>         
           </div>
         </div>
     </div>
 )}
-export default UserPage;
+export default UserPage;*/
+
+import React from 'react';
+import './user.css';
+import one from "../../images/1.jpg";
+
+function UserProfileCard() {
+  return (
+  <div className='user-body'>
+    <div className="wrapper">
+      <div className="left">
+        <img src={one} alt="user" width="100" />
+        <h4>User Number 1</h4>
+        <p>User Name</p>
+      </div>
+      <div className="right">
+        <div className="info">
+          <h3>Information</h3>
+          <div className="info_data">
+            <div className="data">
+              <h4>Email</h4>
+              <p>user@example.com</p>
+            </div>
+            <div className="data">
+              <h4>Phone</h4>
+              <p>+91 1234567890</p>
+            </div>
+            <div className="data">
+              <h4>Country</h4>
+              <p>India</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="info">
+          <h3>Information</h3>
+          <div className="info_data">
+            <div className="data">
+              <h4>User Name</h4>
+              <p>UserName</p>
+            </div>
+            <div className="data">
+              <h4>Password</h4>
+              <p>password</p>
+            </div>
+            <div className="data">
+              <h4>Join Date</h4>
+              <p>dd/mm/yyyy</p>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div className="fav-song">
+          <h3>Favourite Song</h3>
+          <div className="song-data">
+            <div className="data">
+              <h4>Recent</h4>
+              <p>Save Your Tears</p>
+            </div>
+            <div className="data">
+              <h4>Most Played</h4>
+              <p>Phani Aditiya</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="social_media">
+          <ul>
+            <li><a href="#"><i className="fab fa-facebook-f"></i></a></li>
+            <li><a href="#"><i className="fab fa-twitter"></i></a></li>
+            <li><a href="#"><i className="fab fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  );
+}
+
+export default UserProfileCard;
 
