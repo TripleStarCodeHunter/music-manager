@@ -25,6 +25,8 @@ const Login = () =>{
       <input className='login-input' type='password' id='password' name='password' onChange={p=>setpassword(p.target.value  )}/>
       <button className='login-button' >Login</button>
     </form>
+    <br />
+    <br/>
       <button className='login-link-btn' /*onClick={() => props.onFormSwitch('register')}*/>Dont Have An Account</button>
   </div>
 </div>

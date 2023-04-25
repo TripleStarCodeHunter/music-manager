@@ -56,18 +56,18 @@ export default UserPage;*/
 
 import React from 'react';
 import './user.css';
-import one from "../../images/1.jpg";
-
+import image from "../../images/user-profile.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function UserProfileCard() {
   return (
   <div className='user-body'>
     <div className="wrapper">
-      <div className="left">
-        <img src={one} alt="user" width="100" />
+      <div className="user-left">
+        <img src={image} alt="user" width="100" />
         <h4>User Number 1</h4>
         <p>User Name</p>
       </div>
-      <div className="right">
+      <div className="user-right">
         <div className="info">
           <h3>Information</h3>
           <div className="info_data">
@@ -85,6 +85,10 @@ function UserProfileCard() {
             </div>
           </div>
         </div>
+
+<br />
+<br />
+
 
         <div className="info">
           <h3>Information</h3>
@@ -105,10 +109,11 @@ function UserProfileCard() {
         </div>
 
 
-
+<br/>
+<br/>
         <div className="fav-song">
           <h3>Favourite Song</h3>
-          <div className="song-data">
+          <div className="main-song-data">
             <div className="data">
               <h4>Recent</h4>
               <p>Save Your Tears</p>
@@ -120,13 +125,13 @@ function UserProfileCard() {
           </div>
         </div>
 
-        <div className="social_media">
+        {/* <div className="social_media">
           <ul>
             <li><a href="#"><i className="fab fa-facebook-f"></i></a></li>
             <li><a href="#"><i className="fab fa-twitter"></i></a></li>
             <li><a href="#"><i className="fab fa-instagram"></i></a></li>
           </ul>
-        </div>
+        </div> */}
       </div>
     </div>
   </div>
