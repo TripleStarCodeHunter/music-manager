@@ -95,13 +95,15 @@ span{
     display: none;
 }*/
 
-*{
+.user-body *{
+    
     margin: 0;
     padding: 0;
+    width: 100%;
     box-sizing: border-box;
     list-style: none;
     font-family: 'Josefin Sans', sans-serif;
-  }
+  } 
 
 .user-body{
     width: 100%;
