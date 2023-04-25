@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
-import axios from 'axios'
+import axios from 'axios';
+import "./register.css"
 // import { on } from '../../server/database_connection';
 
 const Registration = () =>{
@@ -16,9 +17,12 @@ const Registration = () =>{
         .then(res=>console.log(res))
         .catch(err =>console.log(err))
     }
-    return( <div className='register-background'>
+    return( 
+
+<div className='register-background'>
+    <div className='auth-form-container'>
         <h2>Register</h2>
-        <form className='register-form' onSubmit={onsubmitHandler1} method='post' >
+    <form className='register-form' onSubmit={onsubmitHandler1} method='post' >
       <label className='register-label' htmlFor='username'>Username</label>
       <input className='register-input' type='test' id='username' name='username' onChange={e=>setusername(e.target.value)}/> 
       <label className='register-label' htmlFor='password'>Password</label>
@@ -30,6 +34,7 @@ const Registration = () =>{
       <button className='register-button' >register</button>
     </form>
     </div>
+</div>
     )
 }
 

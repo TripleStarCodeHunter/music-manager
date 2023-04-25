@@ -4,13 +4,14 @@
 // import Registration from './registration';
 // import HomePage from './homepage';
 // import Register from './register';
-import Register from './pages/registration';
+//import Register from './pages/registration';
 import {BrowserRouter,Route,Routes } from 'react-router-dom';
 // import axios from 'axios';
 import LoginPage from './pages/loginPage';
 import MainPage from './pages/mainpage';
 import UserPage from './pages/userPage';
 import ArtistPage from './pages/artistPage';
+import Register from './pages/registration';
 
 function App() {
   return (
