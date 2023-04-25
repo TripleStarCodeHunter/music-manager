@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 .artist-background{
     background-color: antiquewhite;
@@ -121,4 +121,8 @@ nav ul li{
     body {
       background-color: red;
     }
-  }
+  } */
+
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
