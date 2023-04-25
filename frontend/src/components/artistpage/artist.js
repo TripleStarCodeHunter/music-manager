@@ -1,36 +1,65 @@
-import React from "react";
+/*import React from "react";
 import one from "../../images/10.jpg";
 import './artist.css';
 
 const Artist = () => {
     return ( 
-        <body className="flex flex-col w-full h-full font-sans">
-          <div className="relative flex justify-center">
-            <div className="hidden bg-black md:w-1/3 md:block px-6 py-4 h-full fixed left-0">
-              <button className="text-gray-200 hover:text-white flex items-center mt-4">
-                <svg className="mr-4" viewBox="0 0 512 512" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M 256.274 60.84 L 84.324 166.237 L 84.324 443.063 L 193.27 443.063 L 193.27 293.73 L 320.228 293.73 L 320.228 443.063 L 428.222 443.063 L 428.222 165.476 L 256.274 60.84 Z M 256.274 35.95 L 448.452 149.145 L 448.452 464.395 L 300 464.395 L 300 315.062 L 213.499 315.062 L 213.499 464.395 L 64.095 464.395 L 64.095 150.161 L 256.274 35.95 Z"
-                    fill="currentColor"></path>
-                </svg>
-                <a className="text-gray-300 text-sm font-bold hover:text-white capitalize">Home</a>
-              </button>
-        
-              <div className="mt-10 mb-3 border-b border-gray-700">
-                <button className="flex items-center text-black">
-                  <svg className="fill-current bg-gray-200 hover:bg-white mr-4 p-1 Svg-ulyrgf-0 hJgLcF" role="img" height="24" width="24"
-                    viewBox="0 0 16 16">
-                    <path d="M14 7H9V2H7v5H2v2h5v5h2V9h5z"></path>
-                    <path fill="none" d="M0 0h16v16H0z"></path>
-                  </svg>
-                  <a className="text-gray-300 text-sm font-bold hover:text-white capitalize">Create Playlist</a>
-                </button>
-                <br />
-              </div>
-              <div className="overflow-y-auto h-40 mb-2">
-                <ul id="sidebar-playlist" className="text-gray-400 font-semi-bold text-sm capitalize"></ul>
-              </div>
-        
+<div className="artist-background">
+    
+    <div class="artist-container">
+        <div class="artist-songList">
+            <h1>The Weeknd</h1>
+            <div class="artist-songItemContainer">
+                <div class="artist-songItem">
+                    <img src={one} alt="alan" />
+                    <span class="songName">Save Your Tears</span>
+                    <span class="songlistplay"><span class="timestamp">05:34 <i id="0" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="artist-songItem">
+                    <img src={one} alt="alan" />
+                    <span class="songName">Save Your Tears</span>
+                    <span class="songlistplay"><span class="timestamp">05:34 <i id="1" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="artist-songItem">
+                    <img src={one} alt="alan" />
+                    <span class="songName">Save Your Tears</span>
+                    <span class="songlistplay"><span class="timestamp">05:34 <i id="2" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="artist-songItem">
+                    <img src={one} alt="alan" />
+                    <span class="songName">Save Your Tears</span>
+                    <span class="songlistplay"><span class="timestamp">05:34 <i id="3" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="artist-songItem">
+                    <img src={one} alt="alan" />
+                    <span class="songName">Save Your Tears</span>
+                    <span class="songlistplay"><span class="timestamp">05:34 <i id="4" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="artist-songItem">
+                    <img src={one} alt="alan" />
+                    <span class="songName">Save Your Tears</span>
+                    <span class="songlistplay"><span class="timestamp">05:34 <i id="5" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="artist-songItem">
+                    <img src={one} alt="alan" />
+                    <span class="songName">Save Your Tears</span>
+                    <span class="songlistplay"><span class="timestamp">05:34 <i id="6" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="artist-songItem">
+                    <img src={one} alt="alan" />
+                    <span class="songName">Save Your Tears</span>
+                    <span class="songlistplay"><span class="timestamp">05:34 <i id="7" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="artist-songItem">
+                    <img src={one} alt="alan" />
+                    <span class="songName">Save Your Tears</span>
+                    <span class="songlistplay"><span class="timestamp">05:34 <i id="8" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
+                <div class="artist-songItem">
+                    <img src={one} alt="alan" />
+                    <span class="songName">Save Your Tears</span>
+                    <span class="songlistplay"><span class="timestamp">05:34 <i id="9" class="far songItemPlay fa-play-circle"></i> </span></span>
+                </div>
             </div>
             <div className="w-full md:w-5/6 md:absolute md:right-0" style={{backgroundColor: "#0a2482"}}>
               <div className="p-6" style={{background: "linear-gradient(transparent, #00000080)"}}>
@@ -319,4 +348,116 @@ const Artist = () => {
  );
 }
  
+export default Artist;*/
+import one from "../../images/10.jpg";
+import './artist.css';
+import React, { useState } from "react";
+
+function Artist() {
+  const [currentSong, setCurrentSong] = useState("");
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
+
+  const playSong = (songName) => {
+    if (songName === currentSong && isPlaying) {
+      setIsPlaying(false);
+    } else {
+      setCurrentSong(songName);
+      setIsPlaying(true);
+    }
+  };
+
+  const handleProgressChange = (event) => {
+    setProgress(parseInt(event.target.value));
+  };
+
+  return (
+    <div className="artist-background">
+      <nav className="artist-nav">
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+        </ul>
+      </nav>
+
+      <div className="artist-container">
+        <div className="songList">
+          <h1>Justin Bieber</h1>
+          <div className="artist-songItemContainer">
+            <div className="artist-songItem">
+            <img alt="1" />
+              <span className="songName">Let me Love You</span>
+              <span className="songlistplay">
+                <span className="timestamp">
+                  05:34{" "}
+                  <i
+                    id="0"
+                    className={
+                      currentSong === "Let me Love You" && isPlaying
+                        ? "fas songItemPlay fa-pause-circle"
+                        : "far songItemPlay fa-play-circle"
+                    }
+                    onClick={() => playSong("Let me Love You")}
+                  ></i>{" "}
+                </span>
+              </span>
+            </div>
+
+            <div className="artist-songItem">
+              <img alt="1" />
+              <span className="songName">Let me Love You</span>
+              <span className="songlistplay">
+                <span className="timestamp">
+                  05:34{" "}
+                  <i
+                    id="9"
+                    className={
+                      currentSong === "Let me Love You" && isPlaying
+                        ? "fas songItemPlay fa-pause-circle"
+                        : "far songItemPlay fa-play-circle"
+                    }
+                    onClick={() => playSong("Let me Love You")}
+                  ></i>{" "}
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="songBanner"></div>
+      </div>
+
+      <div className="artist-bottom">
+        <input
+          type="range"
+          name="range"
+          id="myProgressBar"
+          min="0"
+          value={progress}
+          max="100"
+          onChange={handleProgressChange}
+        />
+        <div className="icons">
+          {/* fontawesome icons */}
+          <i className="fas fa-3x fa-step-backward" id="previous"></i>
+          <i
+            className={
+              isPlaying ? "far fa-3x fa-pause-circle" : "far fa-3x fa-play-circle"
+            }
+            id="masterPlay"
+            onClick={() => setIsPlaying(!isPlaying)}
+          ></i>
+          <i className="fas fa-3x fa-step-forward" id="next"></i>
+        </div>
+        <div className="artist-songInfo">
+          {isPlaying ? (
+            <img src="playing.gif" width="42px" alt="" id="gif" />
+          ) : (
+            <span id="masterSongName">Let me love you</span>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default Artist;

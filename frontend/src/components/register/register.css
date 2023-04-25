@@ -1,6 +1,6 @@
 /*---------------login n register------------------*/
 
-.background{
+.register-background{
     text-align: center;
     display: flex;
     min-height: 100vh;
@@ -20,17 +20,17 @@
     border-radius: 10px;
     margin: 0.5rem;
 }
-label{
+.register-label{
     text-align: left;
     padding: 0.25rem 0;
 }
-input{
+.register-input{
     margin: 0.5rem 0;
     padding: 1rem;
     border-radius: 10px;
     border: none;
 }
-button{
+.register-button{
     border: none;
     background-color: blue;
     padding: 20px;

@@ -333,7 +333,7 @@ right_scroll.addEventListener('click', ()=>{
             </div>
         </nav>
         <div class="content">
-            <h1>Alen Walker-Fade</h1>
+            <h1>Alan Walker-Faded</h1>
             <p>
                 You were the shadow to my light Did you feel us Another start You fade 
                 <br />
