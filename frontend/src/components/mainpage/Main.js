@@ -329,7 +329,7 @@ right_scroll.addEventListener('click', ()=>{
                 <input type="text" placeholder="Search Music..." />
             </div>
             <div class="user">
-                <img src="img/KDS CODER.png" alt="User" title="KDS CODER (Jahid Khan)" />
+                <img src="img/KDS CODER.png" alt="User" title="user" />
             </div>
         </nav>
         <div class="content">
