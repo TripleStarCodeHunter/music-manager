@@ -5,7 +5,8 @@ exports.createlogin = (req,res) =>{
     connection.query(sql,[req.body.username,req.body.password],(err,data)=>{
         if (err) {return res.json('Error');}
         if (data.length) {
-            return res.json('logged in')
+            const username = data[0].username;
+            return res.json({ success: true, username: username });
         }
         else{
             // connection.end()

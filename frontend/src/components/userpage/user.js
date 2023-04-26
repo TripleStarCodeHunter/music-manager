@@ -58,8 +58,20 @@ import React from 'react';
 import './user.css';
 import image from "../../images/user-profile.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect,useState } from 'react';
 function UserProfileCard() {
+  const [username, setUsername] = useState('');
+  useEffect(()=>{
+    const storedUsername = localStorage.getItem('prac-web-username');
+    if (storedUsername) {
+      setUsername(storedUsername);
+    }
+  },[])
+  console.log(username)
+
+
   return (
+    <body id="user-body">
   <div className='user-body'>
     <div className="wrapper">
       <div className="user-left">
@@ -135,6 +147,7 @@ function UserProfileCard() {
       </div>
     </div>
   </div>
+  </body>
   );
 }
 

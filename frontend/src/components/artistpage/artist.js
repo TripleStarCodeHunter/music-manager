@@ -145,7 +145,7 @@ function Artist() {
         <div className="songBanner"></div>
       </div>
 
-      <div className="artist-bottom">
+      <div className="artist-bottom" style={{height:"0",visibility:"hidden"}}>
         <input
           type="range"
           name="range"
@@ -155,25 +155,7 @@ function Artist() {
           max="100"
           onChange={handleProgressChange}
         />
-        <div className="icons">
-          {/* fontawesome icons */}
-          <i className="fas fa-3x fa-step-backward" id="previous"></i>
-          <i
-            className={
-              isPlaying ? "far fa-3x fa-pause-circle" : "far fa-3x fa-play-circle"
-            }
-            id="masterPlay"
-            onClick={() => setIsPlaying(!isPlaying)}
-          ></i>
-          <i className="fas fa-3x fa-step-forward" id="next"></i>
-        </div>
-        <div className="artist-songInfo">
-          {isPlaying ? (
-            <img src="playing.gif" width="42px" alt="" id="gif" />
-          ) : (
-            <span id="masterSongName">Let me love you</span>
-          )}
-        </div>
+        
       </div>
     </div>
   );

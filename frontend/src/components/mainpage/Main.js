@@ -19,6 +19,7 @@ import './Main.css'
 import { useEffect,useState } from "react";
 const Main = () => {
     const [data, setData] = useState([]);
+    const [username, setUsername] = useState('');
     //fetch data
     useEffect(()=>{
         //fetch song data from backend
@@ -30,7 +31,12 @@ const Main = () => {
         console.log(data);
         const music = new Audio('vande.mp3');
 
-// create Array 
+
+    //get username of logged in user
+    const storedUsername = localStorage.getItem('prac-web-username');
+    if (storedUsername) {
+      setUsername(storedUsername);
+    }
 
 const songs = [
     {
@@ -314,10 +320,12 @@ right_scroll.addEventListener('click', ()=>{
     pop_song.scrollLeft += 330;
 })
     },[])
+    console.log(username)
+
     return ( 
 <div className="main-background">
 <header id="header-song-side">
-    <div class="main-song_side">
+    <div class="main-menu-song_side">
         <nav>
             <ul>
                 <li>Discover <span></span></li>

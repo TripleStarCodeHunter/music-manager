@@ -95,20 +95,27 @@ span{
     display: none;
 }*/
 
-*{
+.user-body *{
+    
     margin: 0;
     padding: 0;
+    width: 100%;
     box-sizing: border-box;
     list-style: none;
     font-family: 'Josefin Sans', sans-serif;
-  }
+  } 
 
 .user-body{
     width: 100%;
+    background-image: url(../../images/user-bg.jpg) ;
 }
 
-body{
-  background-image: url(../../images/user-bg.jpg);
+#user-body{
+  background-image: url("../../images/user-bg.jpg") ;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
 }
   
   .wrapper{

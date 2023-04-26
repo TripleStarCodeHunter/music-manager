@@ -31,7 +31,7 @@ const Registration = () =>{
       <input className='register-input' type='email' id='email' name='email' onChange={e => setemail(e.target.value)} />
       <label className='register-label' htmlFor='phone'>Phone</label>
       <input className='register-input' type='tel' id='phone' name='phone'  onChange={t => setphone(t.target.value)}/>
-      <button className='register-button' >register</button>
+      <button className='register-button' >Register</button>
     </form>
     </div>
 </div>

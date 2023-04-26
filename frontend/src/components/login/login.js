@@ -10,14 +10,19 @@ const Login = () =>{
         event.preventDefault()
         // axios.post('http://localhost:5000/login',{username,password}).then
         axios.post('http://localhost:5000/login',{username,password})
-        .then(res=>console.log(res))
+        .then((response) => {
+          const { username } = response.data;
+          localStorage.setItem('prac-web-username', username);
+        })
         .catch(err =>console.log(err))
     }
     
     return( 
+
+      
 <div className='login-background'>
-    <div className='auth-form-container'>
-      <h2>Login</h2>
+    <div className='login-auth-form-container'>
+      <h2 id='header'>Login</h2>
     <form className='login-form' onSubmit={onsubmitHandler} method='post'>
       <label className='login-label' htmlFor='username'>Username</label>
       <input className='login-input' type='test' id='username' name='username' onChange={e=>setusername(e.target.value)}/> 
