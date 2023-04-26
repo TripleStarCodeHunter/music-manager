@@ -10,7 +10,10 @@ const Login = () =>{
         event.preventDefault()
         // axios.post('http://localhost:5000/login',{username,password}).then
         axios.post('http://localhost:5000/login',{username,password})
-        .then(res=>console.log(res))
+        .then((response) => {
+          const { username } = response.data;
+          localStorage.setItem('prac-web-username', username);
+        })
         .catch(err =>console.log(err))
     }
     
