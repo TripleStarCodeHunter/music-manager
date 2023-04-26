@@ -24,6 +24,11 @@ const SideBar= ()=>{
           fetchPlaylist();
         }
       }, [username]);
+
+      const handleDelete = (songId) => {
+        const newPlaylist = playlist.filter((song) => song.song_id !== songId);
+        setPlaylist(newPlaylist);
+      };
       
     return(
         <header id="header-side-bar">
@@ -35,17 +40,18 @@ const SideBar= ()=>{
             <h4 ><span></span><i className="bi bi-music-note-beamed"></i> Recommended</h4>
         </div>
         <div className="menu_song">
-        {playlist.map((song,index) => (
-                <li className="songItem" key={song.song_id}>
-                <span>{index+1}</span>
-                <img src= {song.img} alt=""/>
-                <h5>
-                    {song.song_name}
-                    <div className="subtitle">{song.artistName}</div>
-                </h5>
-                    <i className="bi playListPlay bi-play-circle-fill" id={song.id}></i>
-            </li>
-            ))}
+            {playlist.map((song, index) => (
+  <li className="songItem" key={song.song_id}>
+    <span>{index + 1}</span>
+    <img src={song.img} alt="" />
+    <h5>
+      {song.song_name}
+      <div className="subtitle">{song.artistName}</div>
+    </h5>
+    <i className="bi playListPlay bi-play-circle-fill" id={song.id}></i>
+    <button className='delete-button' onClick={() => handleDelete(song.song_id)}>Delete</button>
+  </li>
+))}
         </div>
     </div>
 </header>

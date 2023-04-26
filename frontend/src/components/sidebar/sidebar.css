@@ -609,3 +609,18 @@ header .menu-song_side .popular_artists .item li img{
     left: 0;
     top:0;
 }
+.delete-button {
+    
+    background-color: darkblue;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+.delete-button:hover {
+    background-color: white;
+    color: black;
+  }
