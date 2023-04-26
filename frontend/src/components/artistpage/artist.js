@@ -1,7 +1,6 @@
 /*import React from "react";
 import one from "../../images/10.jpg";
 import './artist.css';
-
 const Artist = () => {
     return ( 
 <div className="artist-background">
