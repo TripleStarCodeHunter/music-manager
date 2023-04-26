@@ -60,6 +60,7 @@ import image from "../../images/user-profile.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function UserProfileCard() {
   return (
+    <body id="user-body">
   <div className='user-body'>
     <div className="wrapper">
       <div className="user-left">
@@ -135,6 +136,7 @@ function UserProfileCard() {
       </div>
     </div>
   </div>
+  </body>
   );
 }
 
