@@ -35,3 +35,21 @@ exports.getPlaylist=(req, res) => {
       }
     });
   };
+
+  exports.deletePlaylist=(req, res) => {
+    const username = req.query.username;
+    const songId = req.query.songId;
+    const sql='DELETE FROM playlist WHERE username=? AND song_id=?';
+    connection.query(sql, 
+    [username,songId],
+    (error, results) => {
+
+    //connection.query('SELECT * FROM songs', (error, results) => {
+      if (error) {
+        console.log(error);
+        res.status(500).send('Error retrieving data from database');
+      } else {
+        res.json({success:true});
+      }
+    });
+  };
