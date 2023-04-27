@@ -9,9 +9,9 @@ import Vande from "../../images/26th.jpg";
 const SideBar= ()=>{
     return(
         <header id="header-side-bar">
-    <div className="menu_side">
+    <div className="sidebar-menu_side">
         <h1>Playlist</h1>
-        <div className="playlist">
+        <div className="sidebar-playlist">
             <h4 className="active"><span></span><i className="bi bi-music-note-beamed"></i> Playlist</h4>
             <h4 ><span></span><i className="bi bi-music-note-beamed"></i> Last Listening</h4>
             <h4 ><span></span><i className="bi bi-music-note-beamed"></i> Recommended</h4>

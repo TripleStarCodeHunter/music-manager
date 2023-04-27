@@ -1,4 +1,4 @@
-import Artist from "../components/artist/artist";
+import Artist from "../components/artistpage/artist";
 const ArtistPage = ()=>{
     return(
         <Artist/>

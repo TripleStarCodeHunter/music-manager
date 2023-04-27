@@ -1,11 +1,55 @@
+// <<<<<<< HEAD
 import React, { useEffect,useState } from "react";
 import one from "../../images/10.jpg";
 import './artist.css'
 import { useParams } from "react-router-dom";
+import axios from "axios";
+
+// /*import React from "react";
+// import one from "../../images/10.jpg";
+import './artist.css';
 
 const Artist = () => {
     const [data,setData] = useState([])
+    const [userdata,setUserdata] = useState('')
     const val = useParams()
+    const [currentSong, setCurrentSong] = useState("");
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
+  useEffect(() =>{
+    const storedUsername = localStorage.getItem('data-username')
+    // const storedemail = localStorage.getItem('data-email')
+    // const storedphone = localStorage.getItem('data-phone')
+    if (storedUsername){
+        setUserdata(storedUsername)
+        // setuserPhone(storedphone)
+        // setuseremail(storedemail)
+    }
+
+},[])
+  const addsongHandler = (props) =>{
+    
+    const id = props.id 
+    const username = userdata 
+    console.log(userdata)
+    console.log(id)
+    axios.post('http://localhost:5000/addsong',{id,username})
+        .then(res=>console.log(res))
+        .catch(err =>console.log(err))
+  }
+ 
+  const playSong = (songName) => {
+    if (songName === currentSong && isPlaying) {
+      setIsPlaying(false);
+    } else {
+      setCurrentSong(songName);
+      setIsPlaying(true);
+    }
+  };
+
+  const handleProgressChange = (event) => {
+    setProgress(parseInt(event.target.value));
+  };
     // console.log(val)
     
     useEffect(() =>
@@ -18,43 +62,64 @@ const Artist = () => {
     return (
          
 <div className="artist-background">
-        <nav>
+       <nav className='artist-nav'>
         <ul>
-            <li class="brand">Spotify</li>
+            {/* <li class="brand">Spotify</li> */}
             <li>Home</li>
             <li>About</li>
         </ul>
     </nav>
-        <h1>{val.name}</h1>
-    <div class="container">
-        {data.map((song) => (<div class="songList">
-            {/* <h1>{song.song_name}</h1> */}
-            <div class="songItemContainer">
-                <div class="songItem">
-                    <img src={song.img} alt="alan" />
-                    <span class="songName">{song.song_name}</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="0" class="far songItemPlay fa-play-circle"></i> </span></span>
+    <div class="artist-container" >
+      <div className='songList'>
+        <h1 className='artist-name-style'>{val.name.toUpperCase()}</h1>
+          {data.map((song) =>(
+            (
+              <div className='artist-songItemContainer' onClick={() => addsongHandler({id:song.song_id})}
+              >
+                <div className='artist-songItem'>
+                <img src={song.img} alt="alan" className='song-image-box'/>
+                <span class="songName">{song.song_name}</span>
+                    <span class="songlistplay">
+                        <span class="timestamp">05:34{" "}
+                         <i id="0" 
+                          
+                         className={
+                             currentSong === song.song_name && isPlaying 
+                                 ? "fas songItemPlay fa-pause-circle" 
+                                 : "far songItemPlay fa-play-circle"
+                         } 
+                         onClick={()=>playSong(song.song_name)}
+                         ></i> 
+                        </span>
+                    </span>
                 </div>
-                
-            </div>
-        </div>))}
-        <div class="songBanner"></div>
-    </div>
-
-    <div class="bottom">
-        <input type="range" name="range" id="myProgressBar" min="0" value="0" max="100" />
-        <div class="icons">
-            
-            <i class="fas fa-3x fa-step-backward" id="previous"></i>
-            <i class="far fa-3x fa-play-circle" id="masterPlay"></i>
-            <i class="fas fa-3x fa-step-forward" id="next"></i> 
+                </div>
+            )
+          ))}
+      </div>
         </div>
-        {/* <div class="songInfo">
-        <img src={one} alt="alan" /> <span id="masterSongName">Warriyo - Mortals [NCS Release]</span>
-        </div> */}
-    </div>
-</div>
- );
-}
- 
-export default Artist;
+       
+         <div className="artist-bottom" style={{height:'0' , visibility:'hidden'}}>
+         <input
+           type="range"
+           name="range"
+           id="myProgressBar"
+           min="0"
+           value={progress}
+           max="100"
+           onChange={handleProgressChange}
+         />
+         
+       </div>
+     </div>
+
+    )
+           }
+
+export default Artist ;
+
+
+
+
+
+  

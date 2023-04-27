@@ -21,8 +21,29 @@ import './Main.css'
 import { useEffect,useState } from "react";
 import { Link } from "react-router-dom";
 const Main = () => {
+    const [userdata,setUserdata] = useState('')
+    // const [useremail,setuseremail] = useState('')
+    // const [userphone,setuserPhone] = useState(/'')
     const [data, setData] = useState([]);
     //fetch data
+    const addsonghadnler = (props) =>{
+        console.log(userdata)
+        console.log(props.id)
+    }
+    useEffect(() =>{
+        const storedUsername = localStorage.getItem('data-username')
+        // const storedemail = localStorage.getItem('data-email')
+        // const storedphone = localStorage.getItem('data-phone')
+        if (storedUsername){
+            setUserdata(storedUsername)
+            // setuserPhone(storedphone)
+            // setuseremail(storedemail)
+        }
+
+    },[])
+    
+    
+    
     useEffect(()=>{
         //fetch song data from backend
         fetch('http://localhost:5000/getSongs')
@@ -318,8 +339,9 @@ right_scroll.addEventListener('click', ()=>{
 })
     },[data])
     return ( 
+<div className="main-background">
 <header id="header-song-side">
-    <div class="song_side">
+    <div class="main-menu-song_side">
         <nav>
             <ul>
                 <li>Discover <span></span></li>
@@ -331,11 +353,11 @@ right_scroll.addEventListener('click', ()=>{
                 <input type="text" placeholder="Search Music..." />
             </div>
             <div class="user">
-                <img src="img/KDS CODER.png" alt="User" title="KDS CODER (Jahid Khan)" />
+                <img src="img/KDS CODER.png" alt="User" title="user" />
             </div>
         </nav>
         <div class="content">
-            <h1>Alen Walker-Fade</h1>
+            <h1>Alan Walker-Faded</h1>
             <p>
                 You were the shadow to my light Did you feel us Another start You fade 
                 <br />
@@ -357,7 +379,7 @@ right_scroll.addEventListener('click', ()=>{
             <div class="pop_song">
 
             {data.map((song) => (
-                <li className="songItem" key={song.id}>
+                <li className="songItem" key={song.id} onClick={() => addsonghadnler({id : song.song_id})}>
                     <div className="img_play">
                     <img src={song.img} alt={song.artist} /> {/* Use imported image */}
                     <i className="bi playListPlay bi-play-circle-fill" id={song.id}></i>
@@ -453,6 +475,7 @@ right_scroll.addEventListener('click', ()=>{
         </div>
     </div>
 </header>
+</div>
 
  );
 }

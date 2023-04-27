@@ -7,7 +7,9 @@ exports.createlogin = (req,res) =>{
         if (data.length) {
             // alert('login successfull')
             // return res.render('/123')
-            return res.json('logged in')
+            const val = data[0]
+            // console.log(data[0])
+            return res.json({ success: true, username: val.username ,password:val.password,email : val.email,phone:val.phone});
         }
         else{
             // connection.end()

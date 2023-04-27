@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-body{
+.artist-background{
     background-color: antiquewhite;
 }
 
@@ -9,20 +9,22 @@ body{
     padding: 0;
 }
 
-nav{
+.artist-nav{
     font-family: 'Ubuntu', sans-serif;
 }
 
-nav ul{
+.artist-nav ul{
     display: flex;
     align-items: center;
     list-style-type: none;
-    height: 65px;
+    height: 135px;
+    font-size : 2rem;
+    padding : 0.6rem;
     background-color: black;
     color: white;
 }
 
-nav ul li{
+.artist-nav ul li{
     padding: 0 12px;
 }
 .brand img{
@@ -37,7 +39,7 @@ nav ul li{
     font-size: 1.3rem;
 }
 
-.container{
+.artist-container{
     min-height: 72vh;
     background-color: black;
     color: white;
@@ -47,10 +49,14 @@ nav ul li{
    width: 70%;
    border-radius: 12px;
    padding: 34px;
-   background-image: url('../../images/bg.png');
+   background-image: url('../../images/demo_bg.webp');
+   mask-repeat: no-repeat;
+   width : 100rem;
+   height : 1200px;
+   object-fit: cover;
 }
 
-.bottom{
+.artist-bottom{
     position: sticky;
     bottom: 0;
     height: 130px;
@@ -63,7 +69,7 @@ nav ul li{
 }
 
 .icons{
-    margin-top: 14px; 
+    margin-top: 15px; 
 }
 .icons i{
     cursor: pointer;
@@ -74,21 +80,27 @@ nav ul li{
     cursor: pointer;
 }
 
-.songItemContainer{
+.artist-songItemContainer{
     margin-top: 74px;
 }
+.artist-name-style{
+    color : black;
+    font-weight: 900;
+    font-size : 2rem;
+}
 
-.songItem{
-    height: 50px;
+.artist-songItem{
+    height: 80px;
     display: flex;
     background-color: white;
-    
+    width : 500px;
     color: black;
     margin: 12px 0;
     justify-content: space-between;
     align-items: center;
     border-radius: 34px;
 }
+
 
 .songItem img{
     width: 43px;
@@ -104,13 +116,13 @@ nav ul li{
     cursor: pointer;
 }
 
-.songInfo{
+.artist-songInfo{
     position: absolute;
     left: 10vw;
     font-family: 'Varela Round', sans-serif;
 }
 
-.songInfo img{
+.artist-songInfo img{
     opacity: 0;
     transition: opacity 0.4s ease-in;
 }
@@ -120,3 +132,11 @@ nav ul li{
       background-color: red;
     }
   }
+
+
+.song-image-box{
+    width : 6rem;
+    height : 6rem;
+    border-radius : 5rem;
+    object-fit: cover;
+}
