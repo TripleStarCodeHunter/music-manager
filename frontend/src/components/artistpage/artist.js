@@ -75,7 +75,7 @@ const Artist = () => {
     <div class="artist-container" >
       <div className='songList'>
         <h1 className='artist-name-style'>{val.name}</h1>
-          {data.map((song) =>(
+          {Array.isArray(data) && data.map((song) =>(
             (
               <div className='artist-songItemContainer' 
               >
