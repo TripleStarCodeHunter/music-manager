@@ -108,18 +108,13 @@ span{
   .user-body{
     width: 100%;
     background-image: url(../../images/user-bg.jpg) ;
-}
-
+  }
 #user-body{
   background-image: url("../../images/user-bg.jpg") ;
   background-size: 100% 100%;
   background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
-}
-
-body{
-  background-image: url(../../images/user-bg.jpg);
 }
   
   .wrapper{

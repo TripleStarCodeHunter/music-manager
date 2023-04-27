@@ -25,10 +25,17 @@ const Main = () => {
     // const [useremail,setuseremail] = useState('')
     // const [userphone,setuserPhone] = useState(/'')
     const [data, setData] = useState([]);
+    const [username, setUsername] = useState('');
     //fetch data
     const addsonghadnler = (props) =>{
         console.log(userdata)
         console.log(props.id)
+        const username = userdata 
+        const songId = props.id
+        fetch(`http://localhost:5000/insertPlaylist?username=${username}&songId=${songId}`,
+        )
+          .then(response => response.json())
+          .catch(error => console.log(error));
     }
     useEffect(() =>{
         const storedUsername = localStorage.getItem('data-username')
@@ -39,6 +46,7 @@ const Main = () => {
             // setuserPhone(storedphone)
             // setuseremail(storedemail)
         }
+        console.log(username)
 
     },[])
     
@@ -54,7 +62,12 @@ const Main = () => {
         
         const music = new Audio('vande.mp3');
 
-// create Array 
+
+    //get username of logged in user
+    const storedUsername = localStorage.getItem('prac-web-username');
+    if (storedUsername) {
+      setUsername(storedUsername);
+    }
 
 const songs = [
     {
@@ -337,7 +350,9 @@ left_scroll.addEventListener('click', ()=>{
 right_scroll.addEventListener('click', ()=>{
     pop_song.scrollLeft += 330;
 })
+
     },[data])
+
     return ( 
 <div className="main-background">
 <header id="header-song-side">
@@ -357,6 +372,7 @@ right_scroll.addEventListener('click', ()=>{
             </div>
         </nav>
         <div class="content">
+            <h1>Hello {userdata}</h1>
             <h1>Alan Walker-Faded</h1>
             <p>
                 You were the shadow to my light Did you feel us Another start You fade 

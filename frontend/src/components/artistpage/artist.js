@@ -29,13 +29,16 @@ const Artist = () => {
 },[])
   const addsongHandler = (props) =>{
     
-    const id = props.id 
+    const songId = props.id 
     const username = userdata 
-    console.log(userdata)
-    console.log(id)
-    axios.post('http://localhost:5000/addsong',{id,username})
-        .then(res=>console.log(res))
-        .catch(err =>console.log(err))
+    
+    
+   
+      fetch(`http://localhost:5000/insertPlaylist?username=${username}&songId=${songId}`,
+      )
+        .then(response => response.json())
+        .catch(error => console.log(error));
+  
   }
  
   const playSong = (songName) => {
@@ -71,12 +74,12 @@ const Artist = () => {
     </nav>
     <div class="artist-container" >
       <div className='songList'>
-        <h1 className='artist-name-style'>{val.name.toUpperCase()}</h1>
+        <h1 className='artist-name-style'>{val.name}</h1>
           {data.map((song) =>(
             (
-              <div className='artist-songItemContainer' onClick={() => addsongHandler({id:song.song_id})}
+              <div className='artist-songItemContainer' 
               >
-                <div className='artist-songItem'>
+                <div className='artist-songItem' onClick={() => addsongHandler({id:song.song_id})}>
                 <img src={song.img} alt="alan" className='song-image-box'/>
                 <span class="songName">{song.song_name}</span>
                     <span class="songlistplay">
@@ -97,24 +100,26 @@ const Artist = () => {
             )
           ))}
       </div>
-        </div>
-       
-         <div className="artist-bottom" style={{height:'0' , visibility:'hidden'}}>
-         <input
-           type="range"
-           name="range"
-           id="myProgressBar"
-           min="0"
-           value={progress}
-           max="100"
-           onChange={handleProgressChange}
-         />
-         
-       </div>
-     </div>
 
-    )
-           }
+
+      <div className="artist-bottom" style={{height:"0",visibility:"hidden"}}>
+        <input
+          type="range"
+          name="range"
+          id="myProgressBar"
+          min="0"
+          value={progress}
+          max="100"
+          onChange={handleProgressChange}
+        />
+        
+      </div>
+    </div>
+    </div> 
+  );
+}
+
+
 
 export default Artist ;
 

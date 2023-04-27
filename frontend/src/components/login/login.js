@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
@@ -7,20 +9,20 @@ const Login = () =>{
     const [username,setusername] = useState();
     const [password,setpassword] = useState()
     const onsubmitHandler = (event) =>{
-        event.preventDefault()
-        // axios.post('http://localhost:5000/login',{username,password}).then
-        axios.post('http://localhost:5000/login',{username,password})
-        .then((response) => {
-          const data= response.data;
-          // console.log(data)
-          localStorage.setItem('data-username',data.username);
-          localStorage.setItem('data-email',data.email)
-          localStorage.setItem('data-phone',data.phone)
-          localStorage.setItem('data-pass',data.password)
-        })
-        .catch(err =>console.log(err))
-    }
-    // console.log()
+      event.preventDefault()
+      // axios.post('http://localhost:5000/login',{username,password}).then
+      axios.post('http://localhost:5000/login',{username,password})
+      .then((response) => {
+
+        const data= response.data;
+        // console.log(data)
+        localStorage.setItem('data-username',data.username);
+        localStorage.setItem('data-email',data.email)
+        localStorage.setItem('data-phone',data.phone)
+        localStorage.setItem('data-pass',data.password)
+        console.log(data)
+      })}
+    
     return( 
 
       
@@ -43,4 +45,3 @@ const Login = () =>{
 }
 
 export default Login ;
-

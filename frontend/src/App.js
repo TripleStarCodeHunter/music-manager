@@ -8,9 +8,8 @@ import Artist from './Artist'
 // import Artistsongs from './Artists/artistsongs';
 import {BrowserRouter,Route,Routes } from 'react-router-dom';
 
-// import HomePage from './homepage';
-// import Register from './register';
-import Songs from './Songs';
+
+
 import Register from './components/register/register';
 // import {BrowserRouter,Route,Routes } from 'react-router-dom';
 // import axios from 'axios';
@@ -19,11 +18,6 @@ import MainPage from './pages/mainpage';
 import User from './components/userpage/user';
 import Artist1 from './components/artistpage/artist'
 
-//import Register from './pages/registration';
-// import {BrowserRouter,Route,Routes } from 'react-router-dom';
-// import axios from 'axios';
-// import LoginPage from './pages/loginPage';
-// import MainPage from './pages/mainpage';
 import UserPage from './pages/userPage';
 import ArtistPage from './pages/artistPage';
 // import Register from './pages/registration';
@@ -38,7 +32,7 @@ function App() {
       <Route exact path='/register' element={<Register />} />
       <Route exact path='/' element={<MainPage />}></Route>
       <Route exact path='/login' element={<LoginPage />}/>
-      <Route exact path='/songs' element={<Songs />} />
+
       {/* <Route exact path='/artist' element={<Artist />} /> */}
       <Route  path='/artist/:id/:name' element = {<Artist1 />} />
       <Route exact path='/user' element={<User />} />

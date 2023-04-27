@@ -4,6 +4,7 @@ import image from "../../images/user-profile.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect,useState } from 'react';
 function UserProfileCard() {
+
   const [userdata,setUserdata] = useState('')
     const [useremail,setuseremail] = useState('')
     const [userphone,setuserPhone] = useState('')
