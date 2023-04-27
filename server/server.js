@@ -5,8 +5,11 @@ const cors =require('cors');
 const registerRoute = require('./routes/registerRoute.js');
 const loginRoute = require('./routes/loginRoute')
 const songsRoute = require('./routes/songsRoute.js')
+const playlistRoute=require('./routes/playlistRoute.js')
 
 const connection=require('./database_connection.js')
+const Artistrender = require('./routes/ArtistRoute.js')
+
 const app = express()
 const PORT = 5000
 
@@ -25,6 +28,24 @@ connection.connect((err)=>{
 app.use('/',registerRoute);
 app.use('/',loginRoute)
 app.use('/',songsRoute)
+// app.use.('/',getArtist)
+// app.use('/',getArtist)
+app.use('/',Artistrender)
+
+// app.use('/',)
+// app.post('/123',(req,res)=>{
+//     console.log('hello')
+// })
+// app.get('/',(req,res)=>{
+//     res.redirect('/123')
+// })
+
+
+app.use('/',songsRoute)
+
+
+app.use('/',playlistRoute)
+
 
 // app.post('/',(req,res)=>{
 //     const sql = 'select * from users where username=? and password=?';
@@ -59,6 +80,9 @@ app.use('/',songsRoute)
 //         }
 //     })
 // })
+
+
+
 
 
 app.listen(PORT,()=>console.log('app is running'))

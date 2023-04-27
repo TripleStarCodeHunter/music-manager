@@ -14,12 +14,44 @@ import jubin from "../../images/jubin Nautiyal.jpg"
 import neha from "../../images/neha.jpg"
 import justin from "../../images/justin-bieber-lede.jpg"
 import two_six from "../../images/26th.jpg"
+import dua from '../../images/dua.jpg';
+import taylor from '../../images/taylor.jpg';
 import './Main.css'
 
 import { useEffect,useState } from "react";
+import { Link } from "react-router-dom";
 const Main = () => {
+    const [userdata,setUserdata] = useState('')
+    // const [useremail,setuseremail] = useState('')
+    // const [userphone,setuserPhone] = useState(/'')
     const [data, setData] = useState([]);
+    const [username, setUsername] = useState('');
     //fetch data
+    const addsonghadnler = (props) =>{
+        console.log(userdata)
+        console.log(props.id)
+        const username = userdata 
+        const songId = props.id
+        fetch(`http://localhost:5000/insertPlaylist?username=${username}&songId=${songId}`,
+        )
+          .then(response => response.json())
+          .catch(error => console.log(error));
+    }
+    useEffect(() =>{
+        const storedUsername = localStorage.getItem('data-username')
+        // const storedemail = localStorage.getItem('data-email')
+        // const storedphone = localStorage.getItem('data-phone')
+        if (storedUsername){
+            setUserdata(storedUsername)
+            // setuserPhone(storedphone)
+            // setuseremail(storedemail)
+        }
+        console.log(username)
+
+    },[])
+    
+    
+    
     useEffect(()=>{
         //fetch song data from backend
         fetch('http://localhost:5000/getSongs')
@@ -27,10 +59,15 @@ const Main = () => {
       .then(data => setData(data)
       )
       .catch(error => console.log(error));
-        console.log(data);
+        
         const music = new Audio('vande.mp3');
 
-// create Array 
+
+    //get username of logged in user
+    const storedUsername = localStorage.getItem('prac-web-username');
+    if (storedUsername) {
+      setUsername(storedUsername);
+    }
 
 const songs = [
     {
@@ -156,7 +193,7 @@ Array.from(document.getElementsByClassName('playListPlay')).forEach((element)=>{
         poster_master_play.src =`img/${index}.jpg`;
         music.play();
         let song_title = songs.filter((ele)=>{
-            return ele.id == index;
+            return ele.id === index;
         })
 
         song_title.forEach(ele =>{
@@ -225,7 +262,7 @@ let vol_dot = document.getElementById('vol_dot');
 let vol_bar = document.getElementsByClassName('vol_bar')[0];
 
 vol.addEventListener('change', ()=>{
-    if (vol.value == 0) {
+    if (vol.value === 0) {
         vol_icon.classList.remove('bi-volume-down-fill');
         vol_icon.classList.add('bi-volume-mute-fill');
         vol_icon.classList.remove('bi-volume-up-fill');
@@ -261,7 +298,7 @@ back.addEventListener('click', ()=>{
     poster_master_play.src =`img/${index}.jpg`;
     music.play();
     let song_title = songs.filter((ele)=>{
-        return ele.id == index;
+        return ele.id === index;
     })
 
     song_title.forEach(ele =>{
@@ -286,7 +323,7 @@ next.addEventListener('click', ()=>{
     poster_master_play.src =`img/${index}.jpg`;
     music.play();
     let song_title = songs.filter((ele)=>{
-        return ele.id == index;
+        return ele.id === index;
     })
 
     song_title.forEach(ele =>{
@@ -313,10 +350,13 @@ left_scroll.addEventListener('click', ()=>{
 right_scroll.addEventListener('click', ()=>{
     pop_song.scrollLeft += 330;
 })
-    },[])
+
+    },[data])
+
     return ( 
+<div className="main-background">
 <header id="header-song-side">
-    <div class="song_side">
+    <div class="main-menu-song_side">
         <nav>
             <ul>
                 <li>Discover <span></span></li>
@@ -328,11 +368,12 @@ right_scroll.addEventListener('click', ()=>{
                 <input type="text" placeholder="Search Music..." />
             </div>
             <div class="user">
-                <img src="img/KDS CODER.png" alt="User" title="KDS CODER (Jahid Khan)" />
+                <img src="img/KDS CODER.png" alt="User" title="user" />
             </div>
         </nav>
         <div class="content">
-            <h1>Alen Walker-Fade</h1>
+            <h1>Hello {userdata}</h1>
+            <h1>Alan Walker-Faded</h1>
             <p>
                 You were the shadow to my light Did you feel us Another start You fade 
                 <br />
@@ -354,7 +395,7 @@ right_scroll.addEventListener('click', ()=>{
             <div class="pop_song">
 
             {data.map((song) => (
-                <li className="songItem" key={song.id}>
+                <li className="songItem" key={song.id} onClick={() => addsonghadnler({id : song.song_id})}>
                     <div className="img_play">
                     <img src={song.img} alt={song.artist} /> {/* Use imported image */}
                     <i className="bi playListPlay bi-play-circle-fill" id={song.id}></i>
@@ -375,10 +416,10 @@ right_scroll.addEventListener('click', ()=>{
             </div>
             <div class="item">
                 <li>
-                    <img src={Arijit} alt="Arjit Singh" title="Arjit Singh" />
+                    <Link to='/artist/4/arijit singh'><img src={Arijit} alt="Arjit Singh" title="Arjit Singh" /></Link>
                 </li>
                 <li>
-                    <img src={Alan} alt="Alan Walker" title="Alan Walker" />
+                    <Link to='/artist/2/Alan Walker'><img src={Alan} alt="Alan Walker" title="Alan Walker" /></Link>
                 </li>
                 <li>
                     <img src={atif} alt="Atif Aslam" title="Atif Aslam" />
@@ -393,13 +434,19 @@ right_scroll.addEventListener('click', ()=>{
                     <img src={diljit} alt="Diljit Dosanjh" title="Diljit Dosanjh" />
                 </li>
                 <li>
-                    <img src={jubin} alt="Jubin Nautiyal" title="Jubin Nautiyal" />
+                    <Link to='/artist/6/Jubin Nautiyal'><img src={jubin} alt="Jubin Nautiyal" title="Jubin Nautiyal" /></Link>
                 </li>
                 <li>
-                    <img src={neha} alt="Neha Kakker" title="Neha Kakker" />
+                    <Link to='/artist/5/Neha Kakkar'><img src={neha} alt="Neha Kakker" title="Neha Kakker" /></Link>
                 </li>
                 <li>
-                    <img src={justin} alt="Justin Bieber" title="Justin Bieber" />
+                    <Link to='/artist/8/Dua Lipa'><img src={dua} alt="Dua Lipa" title="Dua Lipa" /></Link>
+                </li>
+                <li>
+                    <Link to='/artist/3/Justin Beiber'><img src={justin} alt="Justin Bieber" title="Justin Bieber" /></Link>
+                </li>
+                <li>
+                    <Link to='/artist/7/Taylor Swift'><img src={taylor} alt="Taylor Swift" title="Taylor Swift" /></Link>
                 </li>
                 <li>
                     <img src={honey} alt="Honey Singh" title="Honey Singh" />
@@ -444,6 +491,7 @@ right_scroll.addEventListener('click', ()=>{
         </div>
     </div>
 </header>
+</div>
 
  );
 }

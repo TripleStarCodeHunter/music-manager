@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+.artist-background{
+    background-color: antiquewhite;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.artist-nav{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.artist-nav ul{
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    height: 135px;
+    font-size : 2rem;
+    padding : 0.6rem;
+    background-color: black;
+    color: white;
+}
+
+.artist-nav ul li{
+    padding: 0 12px;
+}
+.brand img{
+    width: 44px;
+    padding: 0 8px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 1.3rem;
+}
+
+.artist-container{
+    min-height: 72vh;
+    background-color: black;
+    color: white;
+   font-family: 'Varela Round', sans-serif;
+   display: flex;
+   margin: 23px auto;
+   width: 70%;
+   border-radius: 12px;
+   padding: 34px;
+   background-image: url('../../images/demo_bg.webp');
+   mask-repeat: no-repeat;
+   width : 100rem;
+   height : 1200px;
+   object-fit: cover;
+}
+
+.artist-bottom{
+    position: sticky;
+    bottom: 0;
+    height: 130px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+}
+
+.icons{
+    margin-top: 15px; 
+}
+.icons i{
+    cursor: pointer;
+}
+
+#myProgressBar{
+    width: 80vw; 
+    cursor: pointer;
+}
+
+.artist-songItemContainer{
+    margin-top: 74px;
+}
+.artist-name-style{
+    color : black;
+    font-weight: 900;
+    font-size : 2rem;
+}
+
+.artist-songItem{
+    height: 80px;
+    display: flex;
+    background-color: white;
+    width : 500px;
+    color: black;
+    margin: 12px 0;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 34px;
+}
+
+
+.songItem img{
+    width: 43px;
+    margin: 0 23px;
+    border-radius: 34px;
+}
+
+.timestamp{
+    margin: 0 23px;
+}
+
+.timestamp i{
+    cursor: pointer;
+}
+
+.artist-songInfo{
+    position: absolute;
+    left: 10vw;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.artist-songInfo img{
+    opacity: 0;
+    transition: opacity 0.4s ease-in;
+}
+
+@media only screen and (max-width: 1100px) {
+    body {
+      background-color: red;
+    }
+  }
+
+
+.song-image-box{
+    width : 6rem;
+    height : 6rem;
+    border-radius : 5rem;
+    object-fit: cover;
+}
