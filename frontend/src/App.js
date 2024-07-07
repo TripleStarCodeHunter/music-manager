@@ -4,7 +4,6 @@
 // import Registration from './registration';
 // <<<<<<< HEAD
 
-import Artist from './Artist'
 // import Artistsongs from './Artists/artistsongs';
 import {BrowserRouter,Route,Routes } from 'react-router-dom';
 
@@ -16,7 +15,7 @@ import Register from './components/register/register';
 import LoginPage from './pages/loginPage';
 import MainPage from './pages/mainpage';
 import User from './components/userpage/user';
-import Artist1 from './components/artistpage/artist'
+import Artist1 from './components/artist/artistPage'
 
 import UserPage from './pages/userPage';
 import ArtistPage from './pages/artistPage';
@@ -25,7 +24,7 @@ import ArtistPage from './pages/artistPage';
 
 function App() {
   return (
-    <div>
+    <>
       {/* <Link path='/login'><button>Login</button></Link> */}
       <BrowserRouter>
       <Routes>
@@ -44,7 +43,7 @@ function App() {
       </Routes>
       </BrowserRouter>
       {/* <Registration /> */}
-    </div>
+    </>
   );
 }
 
