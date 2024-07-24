@@ -34,7 +34,7 @@ function App() {
 
       {/* <Route exact path='/artist' element={<Artist />} /> */}
       <Route  path='/artist/:id/:name' element = {<Artist1 />} />
-      <Route exact path='/user' element={<User />} />
+      {/* <Route exact path='/user' element={<User />} /> */}
       {/* <Route exact path='/aritst/:id'  element={<Artistsongs />} /> */}
 
       <Route exact path='/user' element={<UserPage />} />
