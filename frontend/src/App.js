@@ -14,7 +14,7 @@ import Register from './components/register/register';
 // import axios from 'axios';
 import LoginPage from './pages/loginPage';
 import MainPage from './pages/mainpage';
-import User from './components/userpage/user';
+// import User from './components/userpage/user';
 import Artist1 from './components/artist/artistPage'
 
 import UserPage from './pages/userPage';
